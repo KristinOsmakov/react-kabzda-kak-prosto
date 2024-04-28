@@ -5,10 +5,12 @@ import toggle = Simulate.toggle;
 import {useState} from "react";
 
 type Props = {
-    onChange: (on: boolean) => void
+    onChange: (on: boolean) => void,
+    defaultOn?: boolean,
+    defaultOff?: boolean
 };
 export const UnControlledOnOff = (props: Props) => {
-    let  [on, setOn] = useState(false);
+    let  [on, setOn] = useState(props.defaultOn ? props.defaultOn : false);
 
 
     const onStyle = {

@@ -6,13 +6,13 @@ import {AccordionBody} from "./AccordionBody";
 
 type Props = {
     titleValue: string,
-    collapsed: boolean
-    setAccordionValue: (type: boolean)=>void
+    collapsed: boolean,
+    onChange: (type: boolean)=>void,
 };
 export const Accordion = (props: Props) => {
     const accordionFunction = () => {
-       // props.collapsed === true ? props.setAccordionValue(false ) : props.setAccordionValue(true)
-        props.setAccordionValue (!props.collapsed)
+       props.collapsed === true ? props.onChange(false ) : props.onChange(true)
+        props.onChange (!props.collapsed)
     }
     return (
         <div>
@@ -21,7 +21,4 @@ export const Accordion = (props: Props) => {
         </div>
 
     )
-
-
-
 };
