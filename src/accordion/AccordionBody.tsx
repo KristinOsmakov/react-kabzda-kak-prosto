@@ -1,17 +1,15 @@
 // @flow
 import * as React from 'react';
+import {ItemType} from "./Accordion";
 
-type Props = {
-
+type AccordionBodyPropsType = {
+    items: ItemType[]
+    onClick: (value: any) => void
 };
-export const AccordionBody = (props: Props) => {
+export const AccordionBody = ({items, onClick}: AccordionBodyPropsType) => {
     return (
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
+            { items.map( (i, index) => <li onClick={() => { onClick(i.value)} } key={index}>{i.title}</li>)}
         </ul>
     );
 };

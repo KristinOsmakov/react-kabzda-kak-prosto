@@ -11,8 +11,6 @@ import React, {useState} from "react";
 export default {
     component: Accordion
 }
-
-
 const onChangeHandler = action('onChange')
 
 export const CollapsedAccordion = () => {

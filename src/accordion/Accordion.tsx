@@ -3,11 +3,16 @@ import * as React from 'react';
 import {AccordionTitle} from "./AccordionTitle";
 import {AccordionBody} from "./AccordionBody";
 
-
+export type ItemType = {
+    title: string
+    value: any
+}
 type Props = {
     titleValue: string,
     collapsed: boolean,
     onChange: (type: boolean)=>void,
+    items: ItemType[],
+    onClick: (value: any) => void,
 };
 export const Accordion = (props: Props) => {
     const accordionFunction = () => {
@@ -17,7 +22,7 @@ export const Accordion = (props: Props) => {
     return (
         <div>
             <AccordionTitle title={props.titleValue} onClick={accordionFunction}/>
-            {!props.collapsed && <AccordionBody/>}
+            {!props.collapsed && <AccordionBody items={props.items} onClick={props.onClick}/>}
         </div>
 
     )
