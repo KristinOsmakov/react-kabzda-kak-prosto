@@ -17,12 +17,14 @@ export const CollapsedAccordion = () => {
     return <Accordion  titleValue={"Collapsed Accordion"}
                        collapsed={true}
                        onChange={ onChangeHandler}
+                       onClick={()=>{}}
                        />
 }
 export const OpenedAccordion = () => {
     return <Accordion  titleValue={"Opened Accordion"}
                        collapsed={false}
                        onChange={ ()=> {}}
+                       onClick={()=>{}}
     />
 }
 export const AccordionDemo = () => {
@@ -30,5 +32,6 @@ export const AccordionDemo = () => {
     return <Accordion  titleValue={"Accordion"}
                        collapsed={collapsed}
                        onChange={ ()=> setCollapsed(!collapsed) }
+                       onClick={()=>{}}
     />
 }

@@ -1,16 +1,41 @@
-import type {Meta} from '@storybook/react'
+import * as React from 'react';
+import {Select} from "./Select";
+import {action} from "@storybook/addon-actions";
+import {useState} from "react";
 
-import {Select} from './Select';
 
-const meta: Meta<typeof Select> = {
+export default {
+    title: 'Select stories',
     component: Select,
 };
+export const WithValue = () => {
+    const [value, setValue] = useState('2')
+    return <>
+    <Select
+    onChange={setValue}
+    value={value}
+    items={[
+            {value: "1", title: "Minsk"},
+    {value: "2", title: "Moscow"},
+    {value: "3", title: "Kiev"},
 
-export default meta;
+]}/>
+</>
+}
 
-export const CollapsedSelect = () => {
-    return <div>Hello</div>
+export const WithoutValue = () => {
+    const [value, setValue] = useState(null)
+    return <>
+        <Select
+            onChange={setValue}
+            value={value}
+            items={[
+                {value: "1", title: "Minsk"},
+                {value: "2", title: "Moscow"},
+                {value: "3", title: "Kiev"},
+
+            ]}/>
+    </>
 }
-export const OpenedSelect = () => {
-    return <div>Open</div>
-}
+
+

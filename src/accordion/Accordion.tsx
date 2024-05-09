@@ -11,7 +11,7 @@ type Props = {
     titleValue: string,
     collapsed: boolean,
     onChange: (type: boolean)=>void,
-    items: ItemType[],
+    items?: ItemType[],
     onClick: (value: any) => void,
 };
 export const Accordion = (props: Props) => {
