@@ -3,6 +3,7 @@ import * as React from 'react';
 import {AccordionTitle} from "./AccordionTitle";
 import {AccordionBody} from "./AccordionBody";
 import {useReducer, useState} from "react";
+import {reducer, TOGGLE_COLLAPSED} from './reducer'
 
 
 type Props = {
@@ -17,7 +18,7 @@ export const UnControlledAccordion = (props: Props) => {
     return (
         <div>
             {/*<AccordionTitle title={props.titleValue} onClick={()=>setCollapsed(!collapsed)}/>*/}
-            <AccordionTitle title={props.titleValue} onClick={()=>{dispatch({type: TOGGLE_CONSTANT})}}/>
+            <AccordionTitle title={props.titleValue} onClick={()=>{dispatch({type: TOGGLE_COLLAPSED})}}/>
 
             {!state.collapsed && <AccordionBody onClick={()=> {}}/>}
         </div>
