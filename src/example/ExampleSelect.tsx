@@ -73,6 +73,7 @@ export const ExampleSelect = (props: ExportSelectPropsType) => {
         return country.country.includes(filter1) && country.number > Number(filter2) && country.title.includes(filter3)
     })
 
+
     return (
         <>
             {Memo}
@@ -92,3 +93,4 @@ export const ExampleSelect = (props: ExportSelectPropsType) => {
     )
 
 };
+
