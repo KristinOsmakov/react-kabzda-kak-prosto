@@ -9,6 +9,10 @@ export default {
 export const SimpleExample = () => {
     const [fake, setFake] = useState(1);
     const [counter, setCounter] = useState(1);
+
+
+
+
     console.log("SimpleExample")
 
     useEffect(() => {
@@ -30,25 +34,42 @@ export const SimpleExample = () => {
         <button onClick={() => setFake(fake + 1)}>fake+</button>
         <button onClick={() => setCounter(counter + 1)}>counter+</button>
     </>
+
+
 }
 export const SetTimeoutExample = () => {
     const [fake, setFake] = useState(1);
     const [counter, setCounter] = useState(1);
     console.log("SetTimeoutExample")
-    let date = new Date();
-    let hours = date.getHours();
-    let minute = date.getMinutes();
-    let seconds = date.getSeconds();
-    useEffect(() => {
-        setInterval(() => {
-            setCounter((state) => state + 1)
-        }, 1000);
-    }, []);
+
 
     return <>
-        hello, counter: {counter} - fake: {fake} : date: {hours} : {minute} : {seconds}
+        hello, counter: {counter} - fake: {fake}
         {/*<button onClick={() => setFake(fake + 1)}>fake+</button>*/}
         {/*<button onClick={() => setCounter(counter + 1)}>counter+</button>*/}
     </>
 }
+export const Time = () => {
 
+const [time, setTime] = useState(new Date());
+
+useEffect(() => {
+        const intervalId = setInterval(() => {
+            setTime(new Date())
+        }, 1000)
+        return () => clearInterval(intervalId)
+    }, [])
+const formatTime = (date: Date): string => {
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const seconds = String(date.getSeconds()).padStart(2, '0');
+    return `${hours}:${minutes}:${seconds}`;
+}
+    return (
+        <div style={{ fontFamily: 'monospace', fontSize: '2rem' }}>
+            {formatTime(time)}
+        </div>
+    );
+
+
+}
